@@ -28,7 +28,8 @@ fetchData().then(() => {
     setup.innerText = joke.setup; /* same name as api attribute */
 
     const button = document.createElement("button");
-    button.innerText = "View punchline";
+    button.innerText = "View the whole joke";
+    /*  window.location.replace("../jokes.html") */
     /* button.onclick;
     window.location = "../jokes.html"; */
 

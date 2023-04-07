@@ -18,21 +18,22 @@ async function fetchData() {
 
 fetchData().then(() => {
   this.results.forEach((joke) => {
-    /* create container */
-    const containerjoke = document.createElement("div");
+    if (joke.type === "knock-knock") {
+      /* create container */
+      const containerjoke = document.createElement("div");
 
-    const knockknock = document.createElement("h2");
-    knockknock.innerText = joke.general;
+      const general = document.createElement("h2");
+      general.innerText = joke.type;
 
-    const setup = document.createElement("h1");
-    setup.innerText = joke.setup; /* same name as api attribute */
+      const setup = document.createElement("h1");
+      setup.innerText = joke.setup; /* same name as api attribute */
 
-    const button = document.createElement("button");
-    button.innerText = "View punchline";
-    /* button.onclick;
+      const button = document.createElement("button");
+      button.innerText = "View punchline";
+      /* button.onclick;
     window.location = "../jokes.html"; */
 
-    /*  const button = document.querySelector("button");
+      /*  const button = document.querySelector("button");
     button.innerText = "View punchline";
 
     button.addEventListener("click", () => {
@@ -42,14 +43,15 @@ fetchData().then(() => {
     /* const punchline = document.createElement("button");
     punchline.innerText = joke.punchline; */
 
-    /*  adding elements to little container*/
-    containerjoke.appendChild(knockknock);
-    containerjoke.appendChild(setup);
-    containerjoke.appendChild(button);
-    /*  containerjoke.appendChild(punchline); */
+      /*  adding elements to little container*/
+      containerjoke.appendChild(general);
+      containerjoke.appendChild(setup);
+      containerjoke.appendChild(button);
+      /*  containerjoke.appendChild(punchline); */
 
-    /* adding little container to main containers */
-    container.appendChild(containerjoke);
+      /* adding little container to main containers */
+      container.appendChild(containerjoke);
+    }
   });
 
   document.body.appendChild(container);
