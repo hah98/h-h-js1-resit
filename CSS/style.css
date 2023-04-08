@@ -14,7 +14,9 @@ body {
 }
 
 .containerjoke {
-  /* max-width: 100%; */
+  display: grid;
+  grid-template-columns: repeat(4, min (0, 600px));
+  padding: 3em;
 }
 
 .seeWholeJoke {

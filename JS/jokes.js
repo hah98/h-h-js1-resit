@@ -32,19 +32,6 @@ fetchData().then(() => {
     const button = document.createElement("button");
     button.className = "seeWholeJoke";
     button.innerText = "View whole joke";
-    /*  window.location.replace("../jokes.html") */
-    /* button.onclick;
-    window.location = "../jokes.html"; */
-
-    /*  const button = document.querySelector("button");
-    button.innerText = "View punchline";
-
-    button.addEventListener("click", () => {
-        window.location = URL "../jokes.html"
-     });
-
-    /* const punchline = document.createElement("button");
-    punchline.innerText = joke.punchline; */
 
     /*  adding elements to little container*/
     containerjoke.appendChild(type);
