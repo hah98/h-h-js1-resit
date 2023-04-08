@@ -18,17 +18,20 @@ async function fetchData() {
 
 fetchData().then(() => {
   this.results.forEach((joke) => {
-    if (joke.type === "knock-knock") {
+    if (joke.type === "programming") {
       /* create container */
       const containerjoke = document.createElement("div");
+      containerjoke.className = "containerjoke";
+      containerjoke.setAttribute("data-id", joke.id); // give container same id as joke id
 
-      const general = document.createElement("h2");
-      general.innerText = joke.type;
+      const programming = document.createElement("h2");
+      programming.innerText = joke.type;
 
       const setup = document.createElement("h1");
       setup.innerText = joke.setup; /* same name as api attribute */
 
       const button = document.createElement("button");
+      button.className = "seeWholeJoke";
       button.innerText = "View punchline";
       /* button.onclick;
     window.location = "../jokes.html"; */
@@ -44,7 +47,7 @@ fetchData().then(() => {
     punchline.innerText = joke.punchline; */
 
       /*  adding elements to little container*/
-      containerjoke.appendChild(general);
+      containerjoke.appendChild(programming);
       containerjoke.appendChild(setup);
       containerjoke.appendChild(button);
       /*  containerjoke.appendChild(punchline); */
@@ -55,4 +58,16 @@ fetchData().then(() => {
   });
 
   document.body.appendChild(container);
+
+  /* navigate to joke page*/
+  const seeWholeJokeButton = document.querySelectorAll(".seeWholeJoke");
+  seeWholeJokeButton.forEach((button) => {
+    button.addEventListener("click", () => {
+      const jokeId = button.closest(".containerjoke").getAttribute("data-id");
+      console.log("JOKE-ID", jokeId);
+
+      // navigate to joke html
+      window.location.href = `joke.html?id=${jokeId}`; // navigate to jokes.html with id as parameter
+    });
+  });
 });

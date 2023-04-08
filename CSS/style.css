@@ -13,6 +13,15 @@ body {
   box-sizing: border-box;
 }
 
+.containerjoke {
+  /* max-width: 100%; */
+}
+
+.seeWholeJoke {
+  display: flex;
+  justify-content: center;
+}
+
 .button {
   border: none;
   background: #ffff00;
@@ -84,7 +93,9 @@ button:hover {
 .button-types {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 600px));
-  justify-content: center;
+  gap: -50px;
+  margin-right: 100px;
+  /* justify-content: center; */
 }
 
 .footerbar {

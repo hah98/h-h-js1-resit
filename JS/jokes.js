@@ -20,6 +20,8 @@ fetchData().then(() => {
   this.results.forEach((joke) => {
     /* create container */
     const containerjoke = document.createElement("div");
+    containerjoke.className = "containerjoke";
+    containerjoke.setAttribute("data-id", joke.id); // give container same id as joke id
 
     const type = document.createElement("h2");
     type.innerText = joke.type;
@@ -28,7 +30,8 @@ fetchData().then(() => {
     setup.innerText = joke.setup; /* same name as api attribute */
 
     const button = document.createElement("button");
-    button.innerText = "View the whole joke";
+    button.className = "seeWholeJoke";
+    button.innerText = "View whole joke";
     /*  window.location.replace("../jokes.html") */
     /* button.onclick;
     window.location = "../jokes.html"; */
@@ -54,4 +57,16 @@ fetchData().then(() => {
   });
 
   document.body.appendChild(container);
+
+  /* navigate to joke page*/
+  const seeWholeJokeButton = document.querySelectorAll(".seeWholeJoke");
+  seeWholeJokeButton.forEach((button) => {
+    button.addEventListener("click", () => {
+      const jokeId = button.closest(".containerjoke").getAttribute("data-id");
+      console.log("JOKE-ID", jokeId);
+
+      // navigate to joke html
+      window.location.href = `joke.html?id=${jokeId}`; // navigate to jokes.html with id as parameter
+    });
+  });
 });
